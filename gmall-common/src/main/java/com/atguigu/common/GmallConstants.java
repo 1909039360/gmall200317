@@ -21,27 +21,9 @@ public class GmallConstants {
     public static final String ES_INDEX_NEW_ORDER="GMALL2020_NEW_ORDER";
     public static final String ES_INDEX_SALE_DETAIL="gmall2020_sale_detail";
     //ES中预警日志索引前缀
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
+
     public static final String GMALL_ES_ALERT_INFO_PRE = "gmall_coupon_alert";
     // 测试测试 测试测试 测试车ice 2020年8月19日20:16:07
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-    //胡东方 胡东方胡东方
-
-    //事件日志主题
-    //湖三扥三扥森森东方
-    //
-    //    //胡东方 胡东方胡东方
-    //
-    //       //胡东方 胡东方胡东方森森三扥发送扥松动芬森
     public static final String GMALL_TOPIC_EVENT = "TOPIC_EVENT";
 
     //订单详情主题
