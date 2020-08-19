@@ -25,10 +25,10 @@ import scala.util.parsing.json.JSONObject
 object AlertApp {
   def main(args: Array[String]): Unit = {
     //1.创建SparkConf和StreamingContext
-    val sparkConf: SparkConf = new SparkConf().setMaster("AlertApp").setMaster("local[*]")
+    val sparkConf: SparkConf = new SparkConf().setAppName("AlertApp").setMaster("local[*]")
     val ssc: StreamingContext = new StreamingContext(sparkConf,Seconds(5))
     //2.读取Kafka 事件主题数据创建流
-    val kafkaDStream: InputDStream[ConsumerRecord[String, String]] = MyKafkaUtil.getKafkaStream(GmallConstants.GMALL_TOPIC_EVENT,ssc)
+    val kafkaDStream: InputDStream[ConsumerRecord[String, String]] = MyKafkaUtil.getKafkaStream(GmallConstants.KAFKA_TOPIC_EVENT,ssc)
     //3.转换为样例类对象
     val sdf: SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH")
     val eventLogDStream: DStream[EventLog] = kafkaDStream.map(record => {
