@@ -25,6 +25,7 @@ public class GmallConstants {
     //胡东方 胡东方胡东方
 
     //事件日志主题
+    //湖三扥三扥森森东方森森三扥发送扥松动芬森
     public static final String GMALL_TOPIC_EVENT = "TOPIC_EVENT";
 
     //订单详情主题
