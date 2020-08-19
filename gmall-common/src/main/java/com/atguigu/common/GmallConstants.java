@@ -19,6 +19,7 @@ public class GmallConstants {
     public static final String ES_INDEX_NEW_MID="gmall2020_new_mid";
     public static final String ES_INDEX_NEW_ORDER="GMALL2020_NEW_ORDER";
     public static final String ES_INDEX_SALE_DETAIL="gmall2020_sale_detail";
-
+    //ES中预警日志索引前缀
+    public static final String GMALL_ES_ALERT_INFO_PRE = "gmall_coupon_alert";
 }
 
