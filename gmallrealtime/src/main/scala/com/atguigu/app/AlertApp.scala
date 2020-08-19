@@ -8,7 +8,7 @@ import java.util.Date
 import com.alibaba.fastjson.JSON
 import com.atguigu.bean.{CouponAlertInfo, EventLog, MyEsUtil}
 import com.atguigu.common.GmallConstants
-import com.atguigu.utils.MyKafkaUtil
+import com.atguigu.utils.{MyEsUtil, MyKafkaUtil}
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.dstream.{DStream, InputDStream}
