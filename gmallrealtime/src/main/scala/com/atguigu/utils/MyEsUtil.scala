@@ -83,7 +83,7 @@ object MyEsUtil {
 
       //f.释放连接
       close(client)
-
+      //测试 测试
     }
 
   }
