@@ -37,7 +37,6 @@ object AlertApp {
       //b.处理日志日期和小时
       val timeStamp: Long = eventLog.ts
       val date: Date = new Date(timeStamp)
-
       val dateHour: String = sdf.format(date)
       val timeArr: Array[String] = dateHour.split(" ")
       eventLog.logDate = timeArr(0)
@@ -86,7 +85,7 @@ object AlertApp {
     filterAlertDStream.print()
     //7.将生成的预警日志写入ES
     filterAlertDStream.foreachRDD(rdd =>{
-      //转换数据结构,预警日志 ===>(docID,预警日志)
+      //7.将生成的预警日志写入ES
       rdd.foreachPartition(iter =>{
         val docIdToData: Iterator[(String, CouponAlertInfo)] = iter.map(alertInfo => {
           val minutes: Long = alertInfo.ts / 1000 / 60
@@ -120,8 +119,7 @@ object AlertApp {
   //b.遍历logIter
 //提取事件类型
 //将事件添加至集合
-//判断当前数据是否为领券行为
-//判断当前数据是否为领券行为
-//判断当前数据是否为领券行为
-//判断当前数据是否为领券行为
-//判断当前数据是否为领券行为
+//预警日志测试打印
+//7.将生成的预警日志写入ES
+//7.将生成的预警日志写入ES
+//获取当前时间
