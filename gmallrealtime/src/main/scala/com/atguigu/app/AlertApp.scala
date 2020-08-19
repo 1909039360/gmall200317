@@ -6,7 +6,7 @@ import java.util
 import java.util.Date
 
 import com.alibaba.fastjson.JSON
-import com.atguigu.bean.{CouponAlertInfo, EventLog, MyEsUtil}
+import com.atguigu.bean.{CouponAlertInfo, EventLog}
 import com.atguigu.common.GmallConstants
 import com.atguigu.utils.{MyEsUtil, MyKafkaUtil}
 import org.apache.kafka.clients.consumer.ConsumerRecord
