@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController //Controller+responsebody
 public class LoggerController {
     @Autowired
+    //测试 我是second分支
+     //测试 我是second分支
+            // 测试 我是second分支
     KafkaTemplate<String,String> kafkaTemplate;
     @PostMapping("log")
     public String doLog(@RequestParam("logString") String logString ){
