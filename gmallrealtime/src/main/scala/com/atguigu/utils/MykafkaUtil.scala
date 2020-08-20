@@ -2,6 +2,7 @@ package com.atguigu.utils
 import java.{io, lang}
 import java.util.Properties
 
+import org.apache.kafka.clients.consumer
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.kafka010.KafkaConfigUpdater
@@ -85,6 +86,27 @@ object MykafkaUtil2 {
     val kafkaStream: InputDStream[ConsumerRecord[String, String]] = KafkaUtils.createDirectStream[String, String](
       ssc,
       LocationStrategies.PreferConsistent, //"位置策略"
+      ConsumerStrategies.Subscribe[String, String](Array(topic), kafkaParam)
+    )
+    kafkaStream
+  }
+
+}
+object MykafkaUtil3{
+  private val properties:Properties = PropertiesUtil.load("config,properties")
+  private val broker_list:String = properties.getProperty("kafka.broker.list")
+  private val kafkaParam=Map(
+    ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG -> broker_list,
+    ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG -> classOf[StringDeserializer],
+    ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG -> classOf[StringDeserializer],
+    ConsumerConfig.GROUP_ID_CONFIG -> "hadoop102",
+    ConsumerConfig.AUTO_OFFSET_RESET_CONFIG -> "latest",
+    ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG ->(true:lang.Boolean)
+  )
+  def getKafkaStream(topic:String,ssc:StreamingContext)={
+    val kafkaStream: InputDStream[ConsumerRecord[String, String]] = KafkaUtils.createDirectStream[String, String](
+      ssc,
+      LocationStrategies.PreferConsistent, //位置策略
       ConsumerStrategies.Subscribe[String, String](Array(topic), kafkaParam)
     )
     kafkaStream

@@ -92,3 +92,27 @@ class MyKafkaSender2{
     }
 
 }
+class MyKafkaSender3{
+    private  static KafkaProducer<String,String> kafkaProducer = null;
+    private  static KafkaProducer<String,String> createKafkaProducer(){
+        KafkaProducer<String,String> producer = null;
+        Properties properties = new Properties();
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"hadoop102:9092,hadoop103:9092,hadoop104:9092");
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer");
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer");
+        try{
+            producer = new KafkaProducer<String, String>(properties);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return producer;
+    }
+    public static void send(String topic,String msg){
+        if(kafkaProducer == null){
+            kafkaProducer= createKafkaProducer();
+        }
+        kafkaProducer.send(new ProducerRecord<String,String>(topic,msg));
+    }
+
+
+}
