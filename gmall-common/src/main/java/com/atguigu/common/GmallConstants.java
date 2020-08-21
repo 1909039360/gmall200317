@@ -30,6 +30,6 @@ public class GmallConstants {
     public static final String GMALL_TOPIC_ORDER_DETAIL = "TOPIC_ORDER_DETAIL";
     //用户信息主题
     public static final String GMALL_TOPIC_USER_INFO = "TOPIC_USER_INFO";
-
+    public static final String GMALL_ES_SALE_DETAIL_PRE = "gmall200317_sale_detail";
 }
 

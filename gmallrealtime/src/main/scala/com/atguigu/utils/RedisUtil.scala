@@ -15,7 +15,7 @@ object RedisUtil{
   def getJedisClient :Jedis ={
     if(jedisPool == null){
       //
-      println("开辟一个新的连接池")
+    //  println("开辟一个新的连接池")
       val config: Properties = PropertiesUtil.load("config.properties")
       val host: String = config.getProperty("redis.host")
       val port: String = config.getProperty("redis.port")
@@ -30,7 +30,7 @@ object RedisUtil{
       jedisPool = new JedisPool(jedisPoolConfig,host,port.toInt);
       println(s"jedisPool.getNumActive =${jedisPool.getNumActive}")
     }
-    println("获得一个连接")
+    //println("获得一个连接")
     jedisPool.getResource
   }
 

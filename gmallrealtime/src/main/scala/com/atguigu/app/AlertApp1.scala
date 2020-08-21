@@ -48,7 +48,7 @@ object AlertApp1 {
     //5.按照mid做分组处理
     val groupEventDStream: DStream[(String, Iterable[EventLog])] = windowsDStream.map(eventLog => (eventLog.mid, eventLog)).groupByKey()
     //6.对单条数据做处理:
-    //6.1 三次及以上用不同账号(登录并领取优惠劵)：对uid去重
+    //6.1 三次及以上用不同账号(登录并// 领取优惠劵)：对uid去重
     //6.2 没有浏览商品：反面考虑,如果有浏览商品,当前mid不产生预警日志
     val couponAlertInfoDStream: DStream[CouponAlertInfo] = groupEventDStream.map { case (mid, logIter) => {
       //a.创建Set用于存放领券的UID
