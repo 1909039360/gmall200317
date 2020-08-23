@@ -72,7 +72,7 @@ object AlertApp {
         })
       )
 
-      if (uidSet.size() >= 3) {
+      if (uidSet.size() >= 3 && noCLick) {
         CouponAlertInfo(mid, uidSet, itemIds, events, System.currentTimeMillis())
       } else {
         null

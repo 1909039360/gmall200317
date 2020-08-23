@@ -166,21 +166,15 @@ object SaleDetailApp {
 
     //TODO 将三张表JOIN的结果写入ES
     saleDetailDStream.foreachRDD(rdd => {
-
       rdd.foreachPartition(iter => {
-
         //根据当天时间创建索引名称
         val today: String = LocalDate.now().toString
         val indexName: String = s"${GmallConstants.GMALL_ES_SALE_DETAIL_PRE}-$today"
-
         //将orderDetailId作为ES中索引的docId
         val detailIdToSaleDetailIter: Iterator[(String, SaleDetail)] = iter.map(saleDetail => (saleDetail.order_detail_id, saleDetail))
-
         //调用ES工具类写入数据
         MyEsUtil.insertByBulk(indexName, "_doc", detailIdToSaleDetailIter.toList)
-
       })
-
     })
 
     //TODO 打印测试
